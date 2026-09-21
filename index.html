@@ -525,6 +525,17 @@
     display:block;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--cyan);margin-bottom:4px;
   }
   .cinfo-list span{font-size:15.5px;font-weight:700;color:#fff;word-break:break-all}
+  .cmail{padding:14px 0;border-bottom:1px dashed var(--d-line)}
+  .cmail-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .cmail-btns{display:flex;gap:7px;flex:0 0 auto}
+  .mini{
+    border:1px solid var(--d-line);background:rgba(255,255,255,.05);color:#cfe0ff;
+    border-radius:8px;padding:7px 12px;font-size:12.5px;font-weight:700;cursor:pointer;
+    font-family:inherit;letter-spacing:-.01em;transition:background .18s,border-color .18s,color .18s;
+    white-space:nowrap;
+  }
+  .mini:hover{background:rgba(91,140,255,.18);border-color:rgba(91,140,255,.5);color:#fff}
+  .mini.done{background:rgba(34,211,238,.18);border-color:rgba(34,211,238,.55);color:var(--cyan)}
   .cinfo .btn-kakao{width:100%;justify-content:center}
 
   /* ══ FLOATING ══ */
@@ -1174,8 +1185,16 @@
           <h4>바로 연락하고 싶으시다면</h4>
           <a href="https://open.kakao.com/o/s2enafqi" target="_blank" rel="noopener" class="btn btn-kakao">카카오톡 오픈채팅</a>
           <ul class="cinfo-list">
-            <li><a href="mailto:nanicca00@naver.com?subject=%5B%EA%B0%95%EC%9D%98%20%EB%AC%B8%EC%9D%98%5D">
-              <small>EMAIL</small><span>nanicca00@naver.com</span></a></li>
+            <li class="cmail">
+              <small>EMAIL</small>
+              <div class="cmail-row">
+                <span>nanicca00@naver.com</span>
+                <div class="cmail-btns">
+                  <button type="button" class="mini" id="copyMail">주소 복사</button>
+                  <a class="mini" href="mailto:nanicca00@naver.com?subject=%5B%EA%B0%95%EC%9D%98%20%EB%AC%B8%EC%9D%98%5D">메일 앱 열기</a>
+                </div>
+              </div>
+            </li>
             <li><a href="https://blog.naver.com/b-210" target="_blank" rel="noopener">
               <small>NAVER BLOG</small><span>강의 후기 보기 →</span></a></li>
             <li><a href="https://www.youtube.com/@B210-z1v" target="_blank" rel="noopener">
@@ -1346,6 +1365,39 @@
       if (hits.length && hits.every(function (r) { return r.s; })) chip.classList.add('sup');
     });
   })();
+
+  /* 이메일 주소 복사 */
+  var copyBtn = document.getElementById('copyMail');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var addr = 'nanicca00@naver.com';
+      function done() {
+        copyBtn.textContent = '복사됨';
+        copyBtn.classList.add('done');
+        setTimeout(function () {
+          copyBtn.textContent = '주소 복사';
+          copyBtn.classList.remove('done');
+        }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var t = document.createElement('textarea');
+        t.value = addr;
+        t.setAttribute('readonly', '');
+        t.style.position = 'fixed';
+        t.style.opacity = '0';
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand('copy'); done(); }
+        catch (e) { prompt('아래 주소를 복사해 주세요', addr); }
+        document.body.removeChild(t);
+      }
+    });
+  }
 
   /* 문의 폼 → 메일 앱 */
   var cform = document.getElementById('cform');
