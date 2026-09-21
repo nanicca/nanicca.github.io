@@ -392,14 +392,22 @@
     background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);
     border-radius:12px;padding:22px 26px;margin-bottom:44px;
   }
-  .book img{
-    flex:0 0 auto;width:92px;height:auto;border-radius:3px;
-    filter:drop-shadow(0 10px 22px rgba(0,0,0,.65)) drop-shadow(0 0 1px rgba(255,255,255,.35));
+  .book-cover{
+    position:relative;flex:0 0 auto;display:grid;place-items:center;padding:14px 16px;
+  }
+  .book-cover::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:78%;height:82%;border-radius:8px;background:var(--grad);
+    filter:blur(17px);opacity:.75;
+  }
+  .book-cover img{
+    position:relative;width:84px;height:auto;border-radius:2px;
+    box-shadow:0 0 0 1px rgba(160,190,255,.55), 0 14px 26px -8px rgba(0,0,0,.9);
   }
   .book b{display:block;font-size:17.5px;color:var(--ink);letter-spacing:-.03em;margin-bottom:5px;line-height:1.45}
   .book span{display:block;font-size:14px;color:var(--muted);line-height:1.6}
   .book span+span{margin-top:3px}
-  @media(max-width:520px){.book{gap:16px;padding:20px}.book img{width:74px}}
+  @media(max-width:520px){.book{gap:14px;padding:18px}.book-cover{padding:11px 12px}.book-cover img{width:68px}}
   .awards{list-style:none;margin:0;padding:0}
   .awards li{font-size:15.5px;padding:10px 0;border-bottom:1px dashed var(--line)}
   .awards li:last-child{border-bottom:0}
@@ -1120,7 +1128,9 @@
 
           <h3 class="block-title">저서</h3>
           <div class="book">
-            <img src="assets/book.png" alt="2024 챗GPT가 주도하는 AI 마케팅 가이드 표지" width="518" height="900" />
+            <span class="book-cover">
+              <img src="assets/book.png" alt="2024 챗GPT가 주도하는 AI 마케팅 가이드 표지" width="518" height="900" />
+            </span>
             <div>
               <b>『2024 챗GPT가 주도하는 AI 마케팅 가이드』</b>
               <span>AI 기술로 창의적인 마케팅 전문가 되기</span>
