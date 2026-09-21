@@ -248,6 +248,16 @@
     font-size:14.5px;font-weight:600;color:#dbe4ff;transition:border-color .2s,background .2s;
   }
   .chip:hover{border-color:rgba(91,140,255,.5);background:rgba(47,107,255,.12)}
+  .chip.sup{color:#7c8098;background:rgba(255,255,255,.028);border-style:dashed;border-color:rgba(255,255,255,.12)}
+  .chip.sup::after{
+    content:"교육지원";display:inline-block;margin-left:8px;font-size:10.5px;font-weight:800;
+    color:#6f7c9e;border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:1px 5px;vertical-align:1px;
+  }
+  .chip-note{
+    font-size:13.5px;color:var(--d-muted);margin:26px 0 0;padding-top:18px;
+    border-top:1px solid var(--d-line);line-height:1.7;
+  }
+  .chip-note em{font-style:normal;color:#9aa6c6;font-weight:700}
 
   /* ══ LECTURES ══ */
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
@@ -735,6 +745,11 @@
           <span class="chip">서울시가족센터</span><span class="chip">서울시장애인일자리통합지원센터</span>
         </div>
       </div>
+
+      <p class="chip-note rv">
+        <em>교육지원</em> 표시가 붙은 기관은 주강사를 보조하거나 공동으로 진행한 과정입니다.
+        표시가 없는 기관은 단독으로 진행했습니다.
+      </p>
     </div>
   </section>
 
@@ -1078,6 +1093,19 @@
       if (!open) { item.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
     });
   });
+
+  /* 출강 기관 칩: 교육지원만 진행한 기관은 흐리게 */
+  (function () {
+    function norm(x) { return String(x).replace(/[\s㈜()（）]/g, ''); }
+    [].forEach.call(document.querySelectorAll('.chip'), function (chip) {
+      var name = norm(chip.textContent);
+      var hits = LECTURES.filter(function (r) {
+        var o = norm(r.o);
+        return o.indexOf(name) > -1 || name.indexOf(o) > -1;
+      });
+      if (hits.length && hits.every(function (r) { return r.s; })) chip.classList.add('sup');
+    });
+  })();
 
   var hd = document.getElementById('hd'), toTop = document.getElementById('toTop');
   function onScroll() {
