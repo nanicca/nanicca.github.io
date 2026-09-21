@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>전혜영 | 챗GPT·생성형 AI 교육 전문가</title>
+<meta name="description" content="공공기관·대학·기업 현장에서 생성형 AI 업무자동화를 가르치는 교육 전문가 전혜영. 한국강사교육협회 이사, 『2024 챗GPT가 주도하는 AI 마케팅 가이드』 저자. 누적 출강 73회, 69개 기관." />
+<meta name="author" content="전혜영" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="전혜영 | 챗GPT·생성형 AI 교육 전문가" />
+<meta property="og:description" content="공공기관·대학·기업 현장에서 '내일 바로 쓰는 AI'를 가르칩니다. 누적 출강 73회, 69개 기관." />
+<meta property="og:image" content="assets/profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233c4a90'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='sans-serif'%3E전%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root{
+    --navy:#2f3a72;
+    --navy-600:#3c4a90;
+    --navy-400:#5b68ab;
+    --tint:#eef1fa;
+    --tint-2:#f7f8fc;
+    --ink:#171a26;
+    --body:#4a5063;
+    --muted:#7b8195;
+    --line:#e3e6ef;
+    --white:#fff;
+    --accent:#b88a2e;
+    --radius:16px;
+    --shadow:0 1px 2px rgba(23,26,38,.04), 0 12px 32px -12px rgba(47,58,114,.18);
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{
+    margin:0;background:var(--white);color:var(--body);
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Malgun Gothic",sans-serif;
+    font-size:17px;line-height:1.72;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{color:var(--ink);line-height:1.3;letter-spacing:-.03em;margin:0}
+  section{padding:104px 0;border-top:1px solid var(--line)}
+  .eyebrow{
+    display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;
+    color:var(--navy-600);text-transform:uppercase;margin-bottom:18px;
+  }
+  .sec-title{font-size:clamp(28px,4vw,38px);font-weight:800;margin-bottom:14px}
+  .sec-desc{font-size:17px;color:var(--muted);max-width:62ch;margin:0 0 48px}
+
+  /* ── nav ── */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);
+    backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-weight:800;color:var(--ink);font-size:19px;text-decoration:none;letter-spacing:-.04em}
+  .brand span{color:var(--navy-600)}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:15px;font-weight:600;color:var(--body);text-decoration:none;transition:color .18s}
+  .nav-links a:hover{color:var(--navy-600)}
+  .nav-cta{
+    background:var(--navy);color:#fff!important;padding:9px 18px;border-radius:999px;
+    font-size:14.5px;font-weight:700;text-decoration:none;transition:background .18s,transform .18s;
+  }
+  .nav-cta:hover{background:var(--navy-600);transform:translateY(-1px)}
+  @media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ── hero ── */
+  .hero{
+    padding:96px 0 84px;border-top:0;
+    background:
+      radial-gradient(1000px 420px at 88% -8%, #e7ecfb 0%, rgba(231,236,251,0) 62%),
+      linear-gradient(180deg,#fafbfe 0%,#fff 100%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:72px;align-items:center}
+  .hero h1{font-size:clamp(44px,6.2vw,68px);font-weight:800;letter-spacing:-.045em;margin-bottom:8px}
+  .hero h1 small{display:block;font-size:.28em;font-weight:700;letter-spacing:.24em;color:var(--navy-400);margin-top:14px}
+  .hero-role{
+    font-size:clamp(20px,2.6vw,26px);font-weight:700;color:var(--navy-600);
+    margin:22px 0 20px;letter-spacing:-.03em;
+  }
+  .hero-lead{font-size:18.5px;line-height:1.8;max-width:50ch;margin:0 0 14px;color:var(--body)}
+  .hero-meta{font-size:15.5px;color:var(--muted);margin:0 0 34px}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;
+    font-size:16px;font-weight:700;text-decoration:none;transition:all .18s;border:1.5px solid transparent;
+  }
+  .btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 20px -8px rgba(47,58,114,.6)}
+  .btn-primary:hover{background:var(--navy-600);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:#fff}
+  .btn-ghost:hover{border-color:var(--navy-400);color:var(--navy-600)}
+  .photo-frame{position:relative}
+  .photo-frame img{
+    width:100%;border-radius:20px;box-shadow:var(--shadow);
+    border:1px solid var(--line);background:var(--tint);
+  }
+  .photo-frame::after{
+    content:"";position:absolute;inset:auto -14px -14px auto;width:62%;height:58%;
+    border-radius:20px;background:var(--tint);z-index:-1;
+  }
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .photo-frame{max-width:300px}
+  }
+
+  /* ── stats ── */
+  .stats{background:var(--navy);color:#fff;padding:56px 0;border:0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stat b{display:block;font-size:clamp(32px,4.4vw,44px);font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.15}
+  .stat span{font-size:14.5px;color:#c3cae8;font-weight:600;letter-spacing:.01em}
+  @media(max-width:720px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 16px}}
+
+  /* ── about ── */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.3fr;gap:64px}
+  .about-grid p{margin:0 0 20px;font-size:17.5px;line-height:1.85}
+  .about-grid p:last-child{margin-bottom:0}
+  .about-grid strong{color:var(--ink);font-weight:700}
+  .pull{
+    border-left:3px solid var(--navy-600);padding:4px 0 4px 22px;margin:34px 0 0;
+    font-size:19px;font-weight:600;color:var(--ink);line-height:1.7;letter-spacing:-.02em;
+  }
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:28px}}
+
+  /* ── fields ── */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfd6ea}
+  .card-num{
+    font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--navy-400);margin-bottom:14px;display:block;
+  }
+  .card h3{font-size:19.5px;font-weight:700;margin-bottom:10px;letter-spacing:-.03em}
+  .card p{margin:0;font-size:15.5px;line-height:1.72;color:var(--body)}
+  .card ul{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .card li{
+    font-size:12.5px;font-weight:600;color:var(--navy-600);background:var(--tint);
+    padding:5px 11px;border-radius:999px;
+  }
+  @media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}}
+
+  /* ── clients ── */
+  .clients{background:var(--tint-2)}
+  .client-group{margin-bottom:30px}
+  .client-group h4{
+    font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--navy-600);margin-bottom:14px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 15px;
+    font-size:14.5px;font-weight:600;color:var(--ink);
+  }
+
+  /* ── lectures ── */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .filter{
+    border:1.5px solid var(--line);background:#fff;color:var(--body);border-radius:999px;
+    padding:9px 18px;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .18s;
+    font-family:inherit;letter-spacing:-.01em;
+  }
+  .filter:hover{border-color:var(--navy-400);color:var(--navy-600)}
+  .filter.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .search-row{display:flex;gap:10px;align-items:center;margin:14px 0 26px;flex-wrap:wrap}
+  .search{
+    flex:1;min-width:220px;max-width:340px;border:1.5px solid var(--line);border-radius:10px;
+    padding:11px 15px;font-size:15px;font-family:inherit;color:var(--ink);outline:none;transition:border-color .18s;
+  }
+  .search:focus{border-color:var(--navy-400)}
+  .count{font-size:14.5px;color:var(--muted);font-weight:600}
+  .lec-list{border-top:1px solid var(--line)}
+  .lec{
+    display:grid;grid-template-columns:96px 1fr 210px;gap:24px;align-items:baseline;
+    padding:20px 4px;border-bottom:1px solid var(--line);
+  }
+  .lec:hover{background:var(--tint-2)}
+  .lec-date{font-size:14px;font-weight:700;color:var(--navy-400);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .lec-main strong{display:block;font-size:16.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:3px}
+  .lec-main span{font-size:14.5px;color:var(--muted)}
+  .lec-org{font-size:15px;font-weight:600;color:var(--body);text-align:right}
+  .lec-tag{
+    display:inline-block;font-size:11.5px;font-weight:700;color:var(--navy-600);
+    background:var(--tint);border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle;
+  }
+  @media(max-width:760px){
+    .lec{grid-template-columns:1fr;gap:5px;padding:18px 2px}
+    .lec-org{text-align:left;font-size:14.5px;color:var(--navy-600)}
+  }
+  .more-wrap{text-align:center;margin-top:36px}
+  .more{
+    background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:13px 32px;
+    font-size:15.5px;font-weight:700;color:var(--ink);cursor:pointer;font-family:inherit;transition:all .18s;
+  }
+  .more:hover{border-color:var(--navy-400);color:var(--navy-600)}
+  .empty{padding:48px 0;text-align:center;color:var(--muted);font-size:15.5px}
+
+  /* ── career ── */
+  .career{background:var(--tint-2)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  @media(max-width:880px){.two-col{grid-template-columns:1fr;gap:48px}}
+  .block-title{
+    font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--navy-600);
+    padding-bottom:12px;border-bottom:2px solid var(--navy);margin-bottom:22px;
+  }
+  .career-list{list-style:none;margin:0 0 42px;padding:0}
+  .career-list li{
+    display:flex;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);
+    font-size:16px;align-items:baseline;
+  }
+  .career-list li:last-child{border-bottom:0}
+  .tag-now,.tag-prev{
+    flex:0 0 auto;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:5px;letter-spacing:.02em;
+  }
+  .tag-now{background:var(--navy);color:#fff}
+  .tag-prev{background:#e9ebf2;color:var(--muted)}
+  .certs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 42px;padding:0;list-style:none}
+  .certs li{
+    background:#fff;border:1px solid var(--line);border-radius:7px;padding:7px 13px;
+    font-size:14px;font-weight:600;color:var(--body);
+  }
+  .book{
+    background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:20px 24px;margin-bottom:42px;
+  }
+  .book b{display:block;font-size:17.5px;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+  .book span{font-size:14.5px;color:var(--muted)}
+  .awards{list-style:none;margin:0;padding:0}
+  .awards li{font-size:15.5px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .awards li:last-child{border-bottom:0}
+
+  /* ── contact ── */
+  .contact{background:var(--navy);color:#fff;border:0;text-align:center}
+  .contact .sec-title{color:#fff}
+  .contact .sec-desc{color:#c3cae8;margin-left:auto;margin-right:auto;text-align:center}
+  .contact-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:820px;margin:0 auto 40px;
+  }
+  .cc{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);
+    padding:26px 18px;text-decoration:none;transition:background .18s,transform .18s;
+  }
+  .cc:hover{background:rgba(255,255,255,.13);transform:translateY(-2px)}
+  .cc b{display:block;font-size:12.5px;font-weight:800;letter-spacing:.1em;color:#a7b2dd;margin-bottom:9px}
+  .cc span{font-size:16.5px;font-weight:700;color:#fff;word-break:break-all}
+  @media(max-width:640px){.contact-cards{grid-template-columns:1fr}}
+  .ask{
+    max-width:760px;margin:0 auto;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    border-radius:var(--radius);padding:26px 30px;text-align:left;
+  }
+  .ask h4{color:#fff;font-size:16px;margin-bottom:12px;letter-spacing:-.02em}
+  .ask ul{margin:0;padding-left:20px;color:#c3cae8;font-size:15.5px;line-height:1.9}
+
+  footer{padding:40px 0;text-align:center;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+  footer b{color:var(--ink);font-weight:700}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">전혜영<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#about">소개</a>
+      <a href="#fields">강의 분야</a>
+      <a href="#lectures">출강 이력</a>
+      <a href="#career">경력·자격</a>
+      <a href="https://blog.naver.com/b-210" target="_blank" rel="noopener">블로그</a>
+      <a href="#contact" class="nav-cta">강의 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">AI Education Specialist</span>
+        <h1>전혜영<small>JEON HYE YOUNG</small></h1>
+        <p class="hero-role">챗GPT·생성형 AI 교육 전문가</p>
+        <p class="hero-lead">
+          공공기관·대학·기업의 실무 현장에서 <strong>“내일 바로 쓰는 AI”</strong>를 가르칩니다.
+          도구 소개에서 끝내지 않고, 조직의 실제 업무를 자동화하는 데까지 데려다 드립니다.
+        </p>
+        <p class="hero-meta">
+          한국강사교육협회 이사 · 미래교육아카데미 전임강사 · 『2024 챗GPT가 주도하는 AI 마케팅 가이드』 저자
+        </p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">강의 문의하기</a>
+          <a href="#lectures" class="btn btn-ghost">출강 이력 보기</a>
+        </div>
+      </div>
+      <div class="photo-frame">
+        <img src="assets/profile.jpg" alt="강사 전혜영 프로필 사진" width="786" height="896" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat"><b>73<small style="font-size:.5em">회</small></b><span>누적 출강 과정</span></div>
+      <div class="stat"><b>69<small style="font-size:.5em">곳</small></b><span>출강 기관</span></div>
+      <div class="stat"><b>6<small style="font-size:.5em">개</small></b><span>전문 강의 분야</span></div>
+      <div class="stat"><b>15<small style="font-size:.5em">종</small></b><span>보유 자격증</span></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 class="sec-title">현장을 아는<br />AI 교육 전문가</h2>
+      </div>
+      <div>
+        <p>
+          수학을 전공하고 아이들에게 코딩을 가르치는 것으로 교육을 시작했습니다.
+          놀이교육센터 원장, 코딩 아카데미 전임강사, 강사양성과정 에듀코치를 거치며
+          <strong>“어려운 기술을 가장 쉬운 말로 옮기는 일”</strong>을 계속해 왔습니다.
+        </p>
+        <p>
+          지금은 그 일을 생성형 AI 영역에서 하고 있습니다.
+          공무원·교원·소방·경찰 같은 공공 현장부터 대학, 기업 임직원, 소상공인, 농업인,
+          중장년과 어르신까지 — <strong>배경지식이 전혀 다른 학습자들에게 각각 다른 언어로</strong> AI를 설명합니다.
+        </p>
+        <p>
+          그래서 강의는 늘 수강 대상의 실제 업무에서 출발합니다.
+          보고서 작성, 데이터 분석, 민원 응대, 홍보 콘텐츠 제작, n8n·MCP를 활용한 업무 자동화까지
+          <strong>그날 배운 것을 다음 날 책상에서 바로 쓸 수 있도록</strong> 설계합니다.
+        </p>
+        <p class="pull">
+          “AI를 아는 사람이 아니라, AI로 일하는 사람을 만듭니다.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIELDS -->
+  <section id="fields">
+    <div class="wrap">
+      <span class="eyebrow">Expertise</span>
+      <h2 class="sec-title">강의 분야</h2>
+      <p class="sec-desc">기관의 목적과 수강 대상에 맞춰 커리큘럼을 새로 설계해 드립니다. 아래는 가장 많이 요청받는 6개 영역입니다.</p>
+      <div class="cards">
+        <article class="card">
+          <span class="card-num">01</span>
+          <h3>생성형 AI 업무효율화·자동화</h3>
+          <p>보고서·기획서·데이터 분석 등 실제 업무 흐름에 AI를 붙입니다. 반복 업무는 자동화 워크플로로 넘깁니다.</p>
+          <ul><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>n8n</li><li>MCP 자동화</li></ul>
+        </article>
+        <article class="card">
+          <span class="card-num">02</span>
+          <h3>AI 콘텐츠 제작·마케팅</h3>
+          <p>홍보 콘텐츠, 상세페이지, 숏폼 영상까지 기획부터 제작·배포 전략을 한 번에 다룹니다.</p>
+          <ul><li>숏폼 제작</li><li>상세페이지</li><li>미리캔버스·캔바</li><li>데이터 시각화</li></ul>
+        </article>
+        <article class="card">
+          <span class="card-num">03</span>
+          <h3>취업·진로 역량</h3>
+          <p>자기소개서, 직무 탐색, 면접 준비를 AI와 함께. 구직청년·경력단절여성·장애인 대상 경험이 많습니다.</p>
+          <ul><li>자소서 코칭</li><li>AI 진로설계</li><li>청년도전지원</li></ul>
+        </article>
+        <article class="card">
+          <span class="card-num">04</span>
+          <h3>K-12 코딩·SW 교육</h3>
+          <p>블록코딩부터 피지컬 컴퓨팅까지. 초·중·고 학생과 학부모, 교원 연수를 모두 진행합니다.</p>
+          <ul><li>스크래치</li><li>파이썬</li><li>아두이노</li><li>앱인벤터</li><li>3D프린팅</li></ul>
+        </article>
+        <article class="card">
+          <span class="card-num">05</span>
+          <h3>AI 자격증·강사 양성</h3>
+          <p>인공지능 활용능력 자격과정 운영과 강사 양성·자격 심사 경험을 바탕으로 한 커리큘럼입니다.</p>
+          <ul><li>AI 활용능력 1급</li><li>강사 양성</li><li>자격 심사</li></ul>
+        </article>
+        <article class="card">
+          <span class="card-num">06</span>
+          <h3>AI 보안·공공 특화</h3>
+          <p>공공기관 AI 보안 가이드북 이해, 공공데이터 활용 등 행정 조직이 지켜야 할 기준을 함께 다룹니다.</p>
+          <ul><li>AI 보안 가이드</li><li>공공데이터</li><li>행정 업무 혁신</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients">
+    <div class="wrap">
+      <span class="eyebrow">Clients</span>
+      <h2 class="sec-title">대표 출강 기관</h2>
+      <p class="sec-desc">2022년부터 69개 기관에서 73개 과정을 진행했습니다.</p>
+
+      <div class="client-group">
+        <h4>공공기관 · 행정</h4>
+        <div class="chips">
+          <span class="chip">서초구청</span><span class="chip">세종특별자치시청</span><span class="chip">유성구청</span>
+          <span class="chip">대구동구청</span><span class="chip">의왕시청</span><span class="chip">부안군청</span>
+          <span class="chip">경상남도교육청</span><span class="chip">경기도교육청 남부연수원</span>
+          <span class="chip">경기도소방학교</span><span class="chip">강원특별자치도 소방학교</span>
+          <span class="chip">경기남부경찰청</span><span class="chip">서울지방우정청</span>
+          <span class="chip">수원경인지방우정청</span><span class="chip">병무연수원</span>
+          <span class="chip">중앙전파관리소</span><span class="chip">국립생물자원관</span>
+        </div>
+      </div>
+
+      <div class="client-group">
+        <h4>기업 · 산업체</h4>
+        <div class="chips">
+          <span class="chip">컴투스</span><span class="chip">센트비</span><span class="chip">한국동서발전㈜</span>
+          <span class="chip">서연이화</span><span class="chip">대학내일</span><span class="chip">삼성인재개발원</span>
+          <span class="chip">삼성SW청년아카데미(SSAFY)</span><span class="chip">㈜남해종합건설</span>
+          <span class="chip">로우파트너스</span>
+        </div>
+      </div>
+
+      <div class="client-group">
+        <h4>대학 · 학교</h4>
+        <div class="chips">
+          <span class="chip">전남대학교</span><span class="chip">강원대학교</span><span class="chip">경상국립대학교</span>
+          <span class="chip">중앙대학교 간호대학</span><span class="chip">남서울대학교</span><span class="chip">동서울대학교</span>
+          <span class="chip">강원도립대학교</span><span class="chip">부천대학교</span><span class="chip">호서대학교</span>
+          <span class="chip">인일여자고등학교</span><span class="chip">구미여자상업고등학교</span>
+        </div>
+      </div>
+
+      <div class="client-group">
+        <h4>협회 · 재단 · 센터</h4>
+        <div class="chips">
+          <span class="chip">한국국제교류재단</span><span class="chip">한국강사교육협회</span>
+          <span class="chip">한국농수식품무역협회</span><span class="chip">중소상공인희망재단</span>
+          <span class="chip">화성시인재육성재단</span><span class="chip">청주상공회의소</span>
+          <span class="chip">대전창업성장캠퍼스</span><span class="chip">서서울농협</span>
+          <span class="chip">화성시농업기술센터</span><span class="chip">여주시농업기술센터</span>
+          <span class="chip">서울시가족센터</span><span class="chip">서울시장애인일자리통합지원센터</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LECTURES -->
+  <section id="lectures">
+    <div class="wrap">
+      <span class="eyebrow">Track Record</span>
+      <h2 class="sec-title">전체 출강 이력</h2>
+      <p class="sec-desc">2022년 이후 진행한 전 과정입니다. 분야별로 필터하거나 기관명·주제로 검색해 보세요.</p>
+
+      <div class="filters" id="filters">
+        <button class="filter on" data-cat="all">전체</button>
+        <button class="filter" data-cat="public">공공기관·행정</button>
+        <button class="filter" data-cat="corp">기업·산업체</button>
+        <button class="filter" data-cat="edu">대학·학교</button>
+        <button class="filter" data-cat="org">협회·재단·센터</button>
+      </div>
+      <div class="search-row">
+        <input class="search" id="q" type="search" placeholder="기관명 또는 주제 검색 (예: 자동화, 소방)" aria-label="출강 이력 검색" />
+        <span class="count" id="count"></span>
+      </div>
+
+      <div class="lec-list" id="list"></div>
+      <div class="more-wrap"><button class="more" id="more">더 보기</button></div>
+    </div>
+  </section>
+
+  <!-- CAREER -->
+  <section class="career" id="career">
+    <div class="wrap">
+      <span class="eyebrow">Career</span>
+      <h2 class="sec-title">경력 · 자격</h2>
+      <p class="sec-desc">강남대학교 수학과 학사</p>
+
+      <div class="two-col">
+        <div>
+          <h3 class="block-title">주요 경력</h3>
+          <ul class="career-list">
+            <li><span class="tag-now">現</span><span>한국강사교육협회 이사</span></li>
+            <li><span class="tag-now">現</span><span>미래교육아카데미 전임강사</span></li>
+            <li><span class="tag-now">現</span><span>배움더하기협동조합 이사</span></li>
+            <li><span class="tag-prev">前</span><span>킨더바움놀이교육센터 원장</span></li>
+            <li><span class="tag-prev">前</span><span>㈜디랩코드아카데미 동탄캠퍼스 코딩강사</span></li>
+            <li><span class="tag-prev">前</span><span>전북미래채움 강사양성과정 에듀코치 &amp; 자격심사위원</span></li>
+          </ul>
+
+          <h3 class="block-title">저서</h3>
+          <div class="book">
+            <b>『챗GPT가 주도하는 AI 마케팅 가이드』</b>
+            <span>2024년 출간</span>
+          </div>
+
+          <h3 class="block-title">수상 · 기타</h3>
+          <ul class="awards">
+            <li>디랩 앱인벤터 개발 창작 대회 <strong>기획상</strong></li>
+            <li>Excellence Prize for App Inventor Creator 2023, D.LAB Certification</li>
+            <li>디랩DX교육연구소 (2023.04)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="block-title">보유 자격증 (15종)</h3>
+          <ul class="certs">
+            <li>챗GPT생성AI교육전문가</li>
+            <li>클로드101 1급</li>
+            <li>인공지능(AI)활용능력 1급</li>
+            <li>프롬프트교육전문가 1급</li>
+            <li>AI콘텐츠 크리에이터 지도사</li>
+            <li>메타버스교육지도사 1급</li>
+            <li>인공지능교육지도사 1급</li>
+            <li>기후변화교육전문가 1급</li>
+            <li>3CT코딩강사 (Scratch)</li>
+            <li>3D프린팅교육지도자</li>
+            <li>ITQ 정보기술자격</li>
+            <li>소프트웨어코딩 지도사</li>
+            <li>웹툰지도사</li>
+            <li>Coding Specialist Professional 2급 (Python)</li>
+            <li>AICE BASIC</li>
+          </ul>
+
+          <h3 class="block-title">주요 수강 대상</h3>
+          <ul class="certs">
+            <li>공무원·행정직</li><li>교원·교장</li><li>소방공무원</li><li>경찰관</li>
+            <li>특별사법경찰</li><li>기업 임직원</li><li>대학 교직원·조교</li><li>교수</li>
+            <li>대학생</li><li>초·중·고 학생</li><li>학부모</li><li>소상공인·창업자</li>
+            <li>농업인</li><li>구직청년</li><li>경력단절여성</li><li>장애인</li>
+            <li>중장년·어르신</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow" style="color:#a7b2dd">Contact</span>
+      <h2 class="sec-title">강의 문의</h2>
+      <p class="sec-desc">기관의 목적과 대상에 맞춰 커리큘럼을 새로 설계해 드립니다. 편하게 문의 주세요.</p>
+
+      <div class="contact-cards">
+        <a class="cc" href="mailto:nanicca00@naver.com?subject=%5B%EA%B0%95%EC%9D%98%20%EB%AC%B8%EC%9D%98%5D%20%EA%B8%B0%EA%B4%80%EB%AA%85%20%2F%20%EC%A3%BC%EC%A0%9C">
+          <b>EMAIL</b><span>nanicca00@naver.com</span>
+        </a>
+        <a class="cc" href="mailto:chatgpt.edu119@gmail.com?subject=%5B%EA%B0%95%EC%9D%98%20%EB%AC%B8%EC%9D%98%5D%20%EA%B0%95%EC%82%AC%20%EC%A0%84%ED%98%9C%EC%98%81">
+          <b>협회 문의</b><span>chatgpt.edu119@gmail.com</span>
+        </a>
+        <a class="cc" href="https://blog.naver.com/b-210" target="_blank" rel="noopener">
+          <b>NAVER BLOG</b><span>강의 후기 보기 →</span>
+        </a>
+      </div>
+
+      <div class="ask">
+        <h4>문의 시 아래 내용을 함께 주시면 더 빠르게 답변드립니다</h4>
+        <ul>
+          <li>기관명 / 담당자 연락처</li>
+          <li>희망 일시 및 강의 시간 (예: 2시간 × 2회)</li>
+          <li>수강 대상 및 인원 (예: 6급 이하 공무원 40명)</li>
+          <li>희망 주제 또는 해결하고 싶은 업무 과제</li>
+          <li>진행 방식 (집합 / 온라인 / 실습 여부)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>전혜영</b> · 챗GPT·생성형 AI 교육 전문가<br />
+    <a href="https://blog.naver.com/b-210" target="_blank" rel="noopener" style="color:var(--navy-600);font-weight:700;text-decoration:none">네이버 블로그</a>
+    <span style="color:var(--line)"> | </span>
+    <a href="mailto:nanicca00@naver.com" style="color:var(--navy-600);font-weight:700;text-decoration:none">강의 문의</a><br />
+    <span style="font-size:13px;display:inline-block;margin-top:8px">© 2026 JEON HYE YOUNG. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  var CAT = { public: '공공·행정', corp: '기업', edu: '대학·학교', org: '협회·센터' };
+  var listEl = document.getElementById('list');
+  var countEl = document.getElementById('count');
+  var moreBtn = document.getElementById('more');
+  var qEl = document.getElementById('q');
+  var STEP = 12, shown = STEP, cat = 'all', q = '';
+
+  function filtered() {
+    return LECTURES.filter(function (r) {
+      if (cat !== 'all' && r.c !== cat) return false;
+      if (!q) return true;
+      var hay = (r.o + ' ' + r.t + ' ' + r.a + ' ' + r.p).toLowerCase();
+      return hay.indexOf(q) > -1;
+    });
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m];
+    });
+  }
+
+  function render() {
+    var rows = filtered();
+    var slice = rows.slice(0, shown);
+    countEl.textContent = '총 ' + rows.length + '건';
+    if (!rows.length) {
+      listEl.innerHTML = '<div class="empty">검색 결과가 없습니다.</div>';
+      moreBtn.style.display = 'none';
+      return;
+    }
+    listEl.innerHTML = slice.map(function (r) {
+      return '<div class="lec">' +
+        '<div class="lec-date">' + esc(r.p) + '</div>' +
+        '<div class="lec-main"><strong>' + esc(r.t) + '</strong>' +
+          (r.a ? '<span>대상 · ' + esc(r.a) + '</span>' : '') + '</div>' +
+        '<div class="lec-org">' + esc(r.o) + '<span class="lec-tag">' + CAT[r.c] + '</span></div>' +
+      '</div>';
+    }).join('');
+    moreBtn.style.display = shown >= rows.length ? 'none' : '';
+    moreBtn.textContent = '더 보기 (' + (rows.length - shown) + '건)';
+  }
+
+  document.getElementById('filters').addEventListener('click', function (e) {
+    var b = e.target.closest('.filter');
+    if (!b) return;
+    [].forEach.call(document.querySelectorAll('.filter'), function (x) { x.classList.remove('on'); });
+    b.classList.add('on');
+    cat = b.dataset.cat; shown = STEP; render();
+  });
+
+  qEl.addEventListener('input', function () {
+    q = qEl.value.trim().toLowerCase(); shown = STEP; render();
+  });
+
+  moreBtn.addEventListener('click', function () { shown += STEP; render(); });
+
+  render();
+})();
+</script>
+</body>
+</html>
