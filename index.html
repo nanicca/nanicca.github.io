@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>전혜영 | 챗GPT·생성형 AI 교육 전문가 · 공공기관·기업 업무자동화 강의</title>
-<meta name="description" content="공공기관·대학·기업 82개 기관 86개 과정 출강. 챗GPT·Claude·Copilot·n8n·MCP를 활용한 생성형 AI 업무자동화 교육 전문가 전혜영. 한국강사교육협회 이사, 『2024 챗GPT가 주도하는 AI 마케팅 가이드』 저자." />
+<meta name="description" content="공공기관·대학·기업 82개 기관 86개 과정 출강. 챗GPT·Claude·Copilot·n8n·MCP를 활용한 생성형 AI 업무자동화 교육 전문가 전혜영. 한국강사교육협회 이사, 『2024 챗GPT가 주도하는 AI 마케팅 가이드』 공저자." />
 <meta name="keywords" content="생성형AI 강사, 챗GPT 강사, Copilot 교육, AI 업무자동화 교육, 공무원 AI 교육, 기업 AI 강의, n8n 교육, 전혜영 강사" />
 <meta name="author" content="전혜영" />
 <link rel="canonical" href="https://nanicca.github.io/" />
@@ -387,9 +387,19 @@
   .tag-prev{background:rgba(255,255,255,.08);color:var(--muted)}
   .certs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 44px;padding:0;list-style:none}
   .certs li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--body)}
-  .book{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:22px 26px;margin-bottom:44px}
-  .book b{display:block;font-size:18px;color:var(--ink);letter-spacing:-.03em;margin-bottom:4px}
-  .book span{font-size:14.5px;color:var(--muted)}
+  .book{
+    display:flex;gap:22px;align-items:center;
+    background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);
+    border-radius:12px;padding:22px 26px;margin-bottom:44px;
+  }
+  .book img{
+    flex:0 0 auto;width:92px;height:auto;border-radius:3px;
+    filter:drop-shadow(0 10px 22px rgba(0,0,0,.65)) drop-shadow(0 0 1px rgba(255,255,255,.35));
+  }
+  .book b{display:block;font-size:17.5px;color:var(--ink);letter-spacing:-.03em;margin-bottom:5px;line-height:1.45}
+  .book span{display:block;font-size:14px;color:var(--muted);line-height:1.6}
+  .book span+span{margin-top:3px}
+  @media(max-width:520px){.book{gap:16px;padding:20px}.book img{width:74px}}
   .awards{list-style:none;margin:0;padding:0}
   .awards li{font-size:15.5px;padding:10px 0;border-bottom:1px dashed var(--line)}
   .awards li:last-child{border-bottom:0}
@@ -691,7 +701,7 @@
           </p>
           <p class="hero-meta">
             한국강사교육협회 이사 · 미래교육아카데미 전임강사<br />
-            『2024 챗GPT가 주도하는 AI 마케팅 가이드』 저자
+            『2024 챗GPT가 주도하는 AI 마케팅 가이드』 공저자
           </p>
           <div class="btn-row">
             <a href="#contact" class="btn btn-primary">강의 문의하기</a>
@@ -1110,8 +1120,12 @@
 
           <h3 class="block-title">저서</h3>
           <div class="book">
-            <b>『챗GPT가 주도하는 AI 마케팅 가이드』</b>
-            <span>2024년 출간</span>
+            <img src="assets/book.png" alt="2024 챗GPT가 주도하는 AI 마케팅 가이드 표지" width="518" height="900" />
+            <div>
+              <b>『2024 챗GPT가 주도하는 AI 마케팅 가이드』</b>
+              <span>AI 기술로 창의적인 마케팅 전문가 되기</span>
+              <span>2024년 · 공감s 출간 · 미래교육아카데미 AI 강사진 공저</span>
+            </div>
           </div>
 
           <h3 class="block-title">수상 · 기타</h3>
