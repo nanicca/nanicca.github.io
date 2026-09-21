@@ -219,8 +219,15 @@
   .prog li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--grad)}
   .prog-foot{
     margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
-    font-size:13.5px;color:var(--muted);font-weight:600;line-height:1.6;
+    font-size:13.5px;color:var(--muted);font-weight:600;line-height:1.7;
   }
+  .prog-foot b{
+    display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;
+    color:var(--blue);background:var(--tint-2);border-radius:4px;
+    padding:1px 7px;margin-right:6px;vertical-align:1px;
+  }
+  .prog-foot .sup{display:inline-block;margin-top:6px;color:#98a2ba}
+  .prog-foot .sup b{color:var(--muted);background:#eef1f7}
   @media(max-width:1000px){.prog-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:660px){.prog-grid{grid-template-columns:1fr}}
 
@@ -603,7 +610,7 @@
             <li>데이터 분석과 통계 자료 시각화</li>
             <li>Claude·제미나이 노트북LM 업무 적용</li>
           </ul>
-          <p class="prog-foot">서초구청 · 세종특별자치시청 · 유성구청 · 대구동구청 · 의왕시청 · 부안군청 진행</p>
+          <p class="prog-foot"><b>진행</b>서초구청 · 세종특별자치시청 · 부안군청<br /><span class="sup"><b>교육지원</b>유성구청 · 대구동구청 · 의왕시청</span></p>
         </article>
 
         <article class="prog rv">
@@ -616,7 +623,7 @@
             <li>공공데이터 MCP 연동 자동화</li>
             <li>부서별 반복 업무 진단과 개선 설계</li>
           </ul>
-          <p class="prog-foot">컴투스 · 센트비 · 한국동서발전㈜ · 대학내일 진행</p>
+          <p class="prog-foot"><b>진행</b>컴투스 · 센트비 · 한국동서발전㈜ · 대학내일</p>
         </article>
 
         <article class="prog rv">
@@ -629,7 +636,7 @@
             <li>교직원 행정 업무 효율화</li>
             <li>AI 윤리와 저작권, 환각 검증</li>
           </ul>
-          <p class="prog-foot">경상남도교육청 · 경기도교육청 남부연수원(교장직무연수) · 중앙대학교 간호대학 진행</p>
+          <p class="prog-foot"><b>진행</b>경상남도교육청<br /><span class="sup"><b>교육지원</b>경기도교육청 남부연수원(교장직무연수) · 중앙대학교 간호대학</span></p>
         </article>
 
         <article class="prog rv">
@@ -642,7 +649,7 @@
             <li>AI 진로설계 워크숍</li>
             <li>포트폴리오·이력서 콘텐츠 제작</li>
           </ul>
-          <p class="prog-foot">동서울대학교 · 부천대학교 · 이천시·인천동구 청년도전지원사업 진행</p>
+          <p class="prog-foot"><b>진행</b>동서울대학교 · 부천대학교 · 이천시·인천동구 청년도전지원사업</p>
         </article>
 
         <article class="prog rv">
@@ -655,7 +662,7 @@
             <li>온라인 판로 개척 전략</li>
             <li>데이터 시각화로 설득하는 자료 만들기</li>
           </ul>
-          <p class="prog-foot">대전창업성장캠퍼스 · 중소상공인희망재단 · 로우파트너스 · 심농교육원 진행</p>
+          <p class="prog-foot"><b>진행</b>대전창업성장캠퍼스 · 중소상공인희망재단 · 로우파트너스<br /><span class="sup"><b>교육지원</b>심농교육원</span></p>
         </article>
 
         <article class="prog rv">
@@ -668,7 +675,7 @@
             <li>보이스피싱·AI 사기 예방 교육</li>
             <li>중장년 재취업과 생애설계 활용</li>
           </ul>
-          <p class="prog-foot">시흥시노인복지관 · 서서울농협 · 인삼대학 · 베이비부머 행복캠퍼스 진행</p>
+          <p class="prog-foot"><b>진행</b>시흥시노인복지관 · 인삼대학<br /><span class="sup"><b>교육지원</b>서서울농협 · 경기동남권 베이비부머 행복캠퍼스</span></p>
         </article>
       </div>
     </div>
