@@ -376,6 +376,28 @@
   .ask h4{color:#fff;font-size:16px;margin-bottom:14px;letter-spacing:-.025em}
   .ask ul{margin:0;padding-left:20px;color:var(--d-body);font-size:15.5px;line-height:1.95}
 
+  /* ══ ASSOCIATION ══ */
+  .assoc{background:var(--tint);padding:64px 0;border-top:1px solid var(--line)}
+  .assoc-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 38px;
+  }
+  .assoc-txt{flex:1;min-width:280px}
+  .assoc-eyebrow{
+    display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;
+    color:var(--muted);margin-bottom:10px;
+  }
+  .assoc h3{font-size:22px;margin-bottom:10px;letter-spacing:-.035em;line-height:1.4}
+  .assoc p{margin:0;font-size:15.5px;line-height:1.75;color:var(--body)}
+  .assoc p b{color:var(--ink);font-weight:700}
+  .btn-outline{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid var(--line);border-radius:999px;padding:14px 28px;
+    font-size:15.5px;font-weight:700;color:var(--ink);transition:all .18s;white-space:nowrap;
+  }
+  .btn-outline:hover{border-color:var(--blue-2);color:var(--blue);transform:translateY(-2px)}
+  @media(max-width:700px){.assoc-inner{padding:28px 24px}.btn-outline{width:100%;justify-content:center}}
+
   /* ══ FLOATING ══ */
   .float{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;flex-direction:column;gap:10px}
   .fb{
@@ -903,6 +925,25 @@
           <li>희망 주제 또는 해결하고 싶은 업무 과제</li>
           <li>진행 방식 (집합 / 온라인 / 실습 여부)</li>
         </ul>
+      </div>
+    </div>
+  </section>
+  <!-- ══════ 강사 양성 안내 ══════ -->
+  <section class="assoc">
+    <div class="wrap">
+      <div class="assoc-inner rv">
+        <div class="assoc-txt">
+          <span class="assoc-eyebrow">FOR FUTURE INSTRUCTORS</span>
+          <h3>AI 강사를 준비하고 계신가요?</h3>
+          <p>
+            전혜영은 <b>한국강사교육협회 이사</b>이자 <b>미래교육아카데미 전임강사</b>로,
+            인공지능 활용능력 자격과정과 강사 양성·자격 심사를 운영하고 있습니다.
+            강사 양성 과정과 자격 취득 문의는 협회로 연락 주세요.
+          </p>
+        </div>
+        <a class="btn-outline" href="mailto:chatgpt.edu119@gmail.com?subject=%5B%EA%B0%95%EC%82%AC%20%EC%96%91%EC%84%B1%20%EB%AC%B8%EC%9D%98%5D%20%EC%84%B1%ED%95%A8%20%2F%20%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9">
+          협회로 강사 양성 문의하기 →
+        </a>
       </div>
     </div>
   </section>
