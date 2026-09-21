@@ -432,6 +432,40 @@
   .faq-a p{margin:0 0 26px;font-size:16.5px;line-height:1.85;color:var(--body);padding-right:40px}
   .faq-a strong{color:var(--ink);font-weight:700}
 
+  /* ══ ON SITE ══ */
+  .onsite{background:var(--tint)}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:920px){.shots{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.shots{grid-template-columns:1fr}}
+  .shot{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);
+    cursor:zoom-in;transition:transform .22s,border-color .22s,box-shadow .22s;
+  }
+  .shot:hover{transform:translateY(-3px);border-color:rgba(91,140,255,.45);box-shadow:0 20px 40px -22px rgba(0,0,0,.7)}
+  .shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0b1123}
+  .shot figcaption{padding:13px 15px 15px}
+  .shot b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+  .shot span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .shot-note{
+    font-size:13.5px;color:var(--muted);margin:26px 0 0;padding-top:18px;
+    border-top:1px solid var(--line);line-height:1.7;
+  }
+  .lightbox{
+    position:fixed;inset:0;z-index:200;background:rgba(3,6,16,.94);
+    display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out;
+  }
+  .lightbox.on{display:flex}
+  .lightbox img{max-width:100%;max-height:82vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.8)}
+  .lightbox p{
+    position:absolute;bottom:26px;left:0;right:0;text-align:center;
+    color:#cfe0ff;font-size:14.5px;font-weight:700;margin:0;padding:0 24px;
+  }
+  .lb-close{
+    position:absolute;top:20px;right:24px;width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,.1);border:1px solid var(--d-line);color:#fff;
+    font-size:22px;line-height:1;cursor:pointer;
+  }
+
   /* ══ REVIEWS ══ */
   .reviews{background:var(--tint)}
   .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -614,6 +648,7 @@
       <a href="#lectures">출강 이력</a>
       <a href="#k12">코딩·SW</a>
       <a href="#career">경력·자격</a>
+      <a href="#onsite">강의 현장</a>
       <a href="#reviews">후기</a>
       <a href="#faq">FAQ</a>
       <a href="#contact" class="nav-cta">강의 문의</a>
@@ -1175,6 +1210,58 @@
     </div>
   </section>
 
+  <!-- ══════ 강의 현장 ══════ -->
+  <section class="onsite" id="onsite">
+    <div class="wrap">
+      <div class="rv">
+        <span class="label">On Site</span>
+        <h2 class="h2">강의 <em>현장</em></h2>
+        <p class="lead">공공기관·기업·대학 강의실에서 진행한 실제 수업 현장입니다.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot rv" data-full="assets/photos/onsite-01.jpg" data-cap="병무연수원 · AI로 완성하는 보고서 · 특별사법경찰 대상">
+          <img src="assets/photos/onsite-01.jpg" alt="병무연수원 AI로 완성하는 보고서 · 특별사법경찰 대상 강의 현장" loading="lazy" />
+          <figcaption><b>병무연수원</b><span>AI로 완성하는 보고서 · 특별사법경찰 대상</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-02.jpg" data-cap="한국동서발전㈜ · [AI+] 생성형 AI 업무자동화 & 공공데이터 MCP 자동화">
+          <img src="assets/photos/onsite-02.jpg" alt="한국동서발전㈜ [AI+] 생성형 AI 업무자동화 & 공공데이터 MCP 자동화 강의 현장" loading="lazy" />
+          <figcaption><b>한국동서발전㈜</b><span>[AI+] 생성형 AI 업무자동화 & 공공데이터 MCP 자동화</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-03.jpg" data-cap="국립생물자원관 · AI 비서와 함께하는 스마트 문서 실무">
+          <img src="assets/photos/onsite-03.jpg" alt="국립생물자원관 AI 비서와 함께하는 스마트 문서 실무 강의 현장" loading="lazy" />
+          <figcaption><b>국립생물자원관</b><span>AI 비서와 함께하는 스마트 문서 실무</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-04.jpg" data-cap="경기도소방학교 · AI로 정보화 능력 향상 기초 과정">
+          <img src="assets/photos/onsite-04.jpg" alt="경기도소방학교 AI로 정보화 능력 향상 기초 과정 강의 현장" loading="lazy" />
+          <figcaption><b>경기도소방학교</b><span>AI로 정보화 능력 향상 기초 과정</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-05.jpg" data-cap="컴투스 · 나만의 AI Agent 만들기">
+          <img src="assets/photos/onsite-05.jpg" alt="컴투스 나만의 AI Agent 만들기 강의 현장" loading="lazy" />
+          <figcaption><b>컴투스</b><span>나만의 AI Agent 만들기</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-06.jpg" data-cap="세종특별자치시청 · AI활용 공공기관 업무 혁신과 실무 활용법">
+          <img src="assets/photos/onsite-06.jpg" alt="세종특별자치시청 AI활용 공공기관 업무 혁신과 실무 활용법 강의 현장" loading="lazy" />
+          <figcaption><b>세종특별자치시청</b><span>AI활용 공공기관 업무 혁신과 실무 활용법</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-07.jpg" data-cap="강원대학교 · 찾아가는 AI 역량강화 과정 · 조교·행정직">
+          <img src="assets/photos/onsite-07.jpg" alt="강원대학교 찾아가는 AI 역량강화 과정 · 조교·행정직 강의 현장" loading="lazy" />
+          <figcaption><b>강원대학교</b><span>찾아가는 AI 역량강화 과정 · 조교·행정직</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-08.jpg" data-cap="전남대학교 · Agro-AI School 생성형AI 활용">
+          <img src="assets/photos/onsite-08.jpg" alt="전남대학교 Agro-AI School 생성형AI 활용 강의 현장" loading="lazy" />
+          <figcaption><b>전남대학교</b><span>Agro-AI School 생성형AI 활용</span></figcaption>
+        </figure>
+        <figure class="shot rv" data-full="assets/photos/onsite-09.jpg" data-cap="경기남부경찰청 · 생성형AI 활용 및 실무 연계 과정">
+          <img src="assets/photos/onsite-09.jpg" alt="경기남부경찰청 생성형AI 활용 및 실무 연계 과정 강의 현장" loading="lazy" />
+          <figcaption><b>경기남부경찰청</b><span>생성형AI 활용 및 실무 연계 과정</span></figcaption>
+        </figure>
+      </div>
+      <p class="shot-note rv">
+        ※ 수강생 개인정보 보호를 위해 얼굴은 모두 모자이크 처리했습니다.
+      </p>
+    </div>
+  </section>
+
   <!-- ══════ REVIEWS (문구 입력 시 자동 노출) ══════ -->
   <section class="reviews" id="reviews" style="display:none">
     <div class="wrap">
@@ -1285,6 +1372,12 @@
     <span style="font-size:13px;display:inline-block;margin-top:12px">© 2026 JEON HYE YOUNG. All rights reserved.</span>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="닫기">×</button>
+  <img id="lbImg" src="" alt="" />
+  <p id="lbCap"></p>
+</div>
 
 <div class="float">
   <a class="fb kakao" href="https://open.kakao.com/o/s2enafqi" target="_blank" rel="noopener" title="카카오톡 문의" aria-label="카카오톡 문의">
@@ -1413,6 +1506,25 @@
     });
   })();
 
+  /* 강의 현장 라이트박스 */
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'),
+      lbCap = document.getElementById('lbCap');
+  function closeLb() { lb.classList.remove('on'); lbImg.src = ''; document.body.style.overflow = ''; }
+  [].forEach.call(document.querySelectorAll('.shot'), function (fig) {
+    fig.addEventListener('click', function () {
+      lbImg.src = fig.dataset.full;
+      lbImg.alt = fig.dataset.cap;
+      lbCap.textContent = fig.dataset.cap;
+      lb.classList.add('on');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lb.classList.contains('on')) closeLb();
+  });
+
   /* 이메일 주소 복사 */
   var copyBtn = document.getElementById('copyMail');
   if (copyBtn) {
@@ -1488,6 +1600,11 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     [].forEach.call(document.querySelectorAll('.rv'), function (el) { io.observe(el); });
+    setTimeout(function () {
+      [].forEach.call(document.querySelectorAll('.rv:not(.in)'), function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 1.3) el.classList.add('in');
+      });
+    }, 2500);
   } else {
     [].forEach.call(document.querySelectorAll('.rv'), function (el) { el.classList.add('in'); });
   }
