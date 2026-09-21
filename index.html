@@ -266,6 +266,16 @@
   .lec-main strong{display:block;font-size:16.5px;font-weight:700;color:var(--ink);letter-spacing:-.025em;margin-bottom:3px}
   .lec-main span{font-size:14px;color:var(--muted)}
   .lec-org{font-size:15px;font-weight:600;color:var(--body);text-align:right}
+  .lec-support{
+    display:inline-block;font-size:11px;font-weight:800;color:var(--muted);
+    background:#eef1f7;border:1px solid var(--line);border-radius:5px;
+    padding:2px 7px;margin-left:8px;vertical-align:middle;letter-spacing:-.01em;
+  }
+  .legend{
+    font-size:14px;color:var(--muted);margin:0 0 26px;line-height:1.7;
+    padding:14px 18px;background:var(--tint);border-radius:10px;
+  }
+  .legend b{color:var(--ink);font-weight:700}
   .lec-tag{
     display:inline-block;font-size:11px;font-weight:800;color:var(--blue);
     background:var(--tint-2);border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle;
@@ -460,7 +470,7 @@
 
     <div class="stats">
       <div class="wrap stats-grid">
-        <div class="stat"><b>73<i>회</i></b><span>누적 출강 과정</span></div>
+        <div class="stat"><b>73<i>건</i></b><span>누적 진행 과정</span></div>
         <div class="stat"><b>69<i>곳</i></b><span>출강 기관</span></div>
         <div class="stat"><b>15<i>종</i></b><span>보유 자격증</span></div>
         <div class="stat"><b>1<i>권</i></b><span>AI 분야 저서</span></div>
@@ -718,6 +728,11 @@
         <span class="count" id="count"></span>
       </div>
 
+      <p class="legend">
+        <b>교육지원</b> 표기는 주강사를 보조하거나 공동으로 진행한 과정입니다.
+        표기가 없는 과정은 단독 진행했습니다. (단독 진행 43건 · 교육지원 30건)
+      </p>
+
       <div class="lec-list" id="list"></div>
       <div class="more-wrap"><button class="more" id="more">더 보기</button></div>
     </div>
@@ -959,7 +974,8 @@
     return LECTURES.filter(function (r) {
       if (cat !== 'all' && r.c !== cat) return false;
       if (!q) return true;
-      return (r.o + ' ' + r.t + ' ' + r.a + ' ' + r.p).toLowerCase().indexOf(q) > -1;
+      var hay = r.o + ' ' + r.t + ' ' + r.a + ' ' + r.p + (r.s ? ' 교육지원' : ' 단독');
+      return hay.toLowerCase().indexOf(q) > -1;
     });
   }
 
@@ -974,7 +990,8 @@
     listEl.innerHTML = rows.slice(0, shown).map(function (r) {
       return '<div class="lec">' +
         '<div class="lec-date">' + esc(r.p) + '</div>' +
-        '<div class="lec-main"><strong>' + esc(r.t) + '</strong>' +
+        '<div class="lec-main"><strong>' + esc(r.t) +
+          (r.s ? '<span class="lec-support">교육지원</span>' : '') + '</strong>' +
           (r.a ? '<span>대상 · ' + esc(r.a) + '</span>' : '') + '</div>' +
         '<div class="lec-org">' + esc(r.o) + '<span class="lec-tag">' + CAT[r.c] + '</span></div>' +
       '</div>';
