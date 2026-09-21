@@ -546,6 +546,12 @@
   .mini:hover{background:rgba(91,140,255,.18);border-color:rgba(91,140,255,.5);color:#fff}
   .mini.done{background:rgba(34,211,238,.18);border-color:rgba(34,211,238,.55);color:var(--cyan)}
   .cinfo .btn-kakao{width:100%;justify-content:center}
+  .btn-pdf{
+    width:100%;justify-content:center;margin-top:10px;
+    border:1.5px solid rgba(91,140,255,.45);background:rgba(47,107,255,.12);color:#dbe6ff;
+  }
+  .btn-pdf:hover{background:rgba(47,107,255,.24);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
+  .pdf-note{font-size:12.5px;color:var(--d-muted);margin:10px 0 0;line-height:1.6;text-align:center}
 
   /* ══ FLOATING ══ */
   .float{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;flex-direction:column;gap:10px}
@@ -653,6 +659,7 @@
           <p class="hero-links">
             <a href="https://blog.naver.com/b-210" target="_blank" rel="noopener">네이버 블로그 →</a>
             <a href="https://www.youtube.com/@B210-z1v" target="_blank" rel="noopener">유튜브 채널 →</a>
+            <a href="assets/proposal.pdf" download="전혜영_강의제안서.pdf">강의 제안서 PDF ↓</a>
           </p>
         </div>
         <div class="photo-wrap">
@@ -1213,6 +1220,10 @@
         <div class="cinfo">
           <h4>바로 연락하고 싶으시다면</h4>
           <a href="https://open.kakao.com/o/s2enafqi" target="_blank" rel="noopener" class="btn btn-kakao">카카오톡 오픈채팅</a>
+          <a href="assets/proposal.pdf" download="전혜영_강의제안서.pdf" class="btn btn-pdf">
+            강의 제안서 PDF 내려받기
+          </a>
+          <p class="pdf-note">내부 보고·결재용으로 바로 쓰실 수 있도록 5쪽으로 정리했습니다.</p>
           <ul class="cinfo-list">
             <li class="cmail">
               <small>EMAIL</small>
