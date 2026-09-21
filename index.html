@@ -616,6 +616,13 @@
   }
 </style>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XG3D7ZKPF1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XG3D7ZKPF1');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1506,6 +1513,24 @@
     });
   })();
 
+  /* 방문자 행동 추적 */
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a, button');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('open.kakao.com') > -1) track('contact_kakao', { position: a.className });
+    else if (href.slice(-4) === '.pdf') track('proposal_download', { position: a.className });
+    else if (href.indexOf('mailto:') === 0) track('contact_email_open');
+    else if (href.indexOf('blog.naver.com') > -1) track('link_blog');
+    else if (href.indexOf('youtube.com') > -1) track('link_youtube');
+    else if (a.id === 'copyMail') track('contact_email_copy');
+    else if (a.classList.contains('filter')) track('lecture_filter', { category: a.dataset.cat });
+    else if (a.classList.contains('more')) track('lecture_more');
+  });
+
   /* 강의 현장 라이트박스 */
   var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'),
       lbCap = document.getElementById('lbCap');
@@ -1516,6 +1541,7 @@
       lbImg.alt = fig.dataset.cap;
       lbCap.textContent = fig.dataset.cap;
       lb.classList.add('on');
+      if (typeof window.gtag === 'function') window.gtag('event', 'onsite_photo_view', { photo: fig.dataset.cap });
       document.body.style.overflow = 'hidden';
     });
   });
@@ -1575,6 +1601,7 @@
       var body = '이름 / 소속: ' + name + NL +
                  '연락처: ' + contact + NL + NL +
                  '문의 내용' + NL + msg + NL;
+      if (typeof window.gtag === 'function') window.gtag('event', 'contact_form_submit');
       window.location.href = 'mailto:nanicca00@naver.com?subject=' +
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
