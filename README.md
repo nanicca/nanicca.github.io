@@ -10,7 +10,7 @@
 index.html        전체 페이지 (구조·스타일·스크립트 포함)
                   섹션: 히어로 / 왜 전혜영 / 소개 / 강의 프로그램 /
                        출강 기관 / 출강 이력 / 경력·자격 / FAQ / 후기 / 문의
-assets/data.js    출강 이력 데이터 (73건)
+assets/data.js    출강 이력 데이터 (74건)
 assets/profile.jpg 프로필 사진
 .nojekyll         GitHub Pages가 Jekyll 처리를 건너뛰도록 하는 표시 파일
 ```
