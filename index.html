@@ -282,6 +282,24 @@
   }
   .chip-note em{font-style:normal;color:#9aa6c6;font-weight:700}
 
+  .wall-head{display:flex;align-items:baseline;gap:10px;margin:0 0 14px;flex-wrap:wrap}
+  .wall-head h4{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--cyan);margin:0}
+  .wall-head span{font-size:13.5px;color:var(--d-muted);font-weight:600}
+  .logo-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:34px}
+  @media(max-width:1000px){.logo-wall{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:620px){.logo-wall{grid-template-columns:repeat(3,1fr);gap:8px}}
+  .logo-wall img{
+    width:100%;aspect-ratio:300/160;object-fit:contain;background:#fff;
+    border-radius:9px;border:1px solid rgba(255,255,255,.14);
+    transition:transform .2s,box-shadow .2s,opacity .2s;
+  }
+  .logo-wall img:hover{transform:translateY(-2px);box-shadow:0 14px 26px -14px rgba(0,0,0,.85)}
+  .logo-wall.sup img{opacity:.6;filter:saturate(.7)}
+  .logo-wall.sup img:hover{opacity:1;filter:none}
+  .k12-wall .wall-head h4{color:var(--blue)}
+  .k12-wall .wall-head span{color:var(--muted)}
+  .k12-wall .logo-wall img{border-color:var(--line)}
+
   /* ══ LECTURES ══ */
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
   .filter{
@@ -954,55 +972,98 @@
         <p class="lead">2022년부터 공공기관·기업·대학·협회에서 86개 과정을 진행했습니다.</p>
       </div>
 
-      <div class="cgroup rv">
-        <h4>공공기관 · 행정</h4>
-        <div class="chips">
-          <span class="chip">서초구청</span><span class="chip">세종특별자치시청</span><span class="chip">유성구청</span>
-          <span class="chip">대구동구청</span><span class="chip">의왕시청</span><span class="chip">부안군청</span>
-          <span class="chip">경상남도교육청</span><span class="chip">경기도교육청 남부연수원</span>
-          <span class="chip">경기도소방학교</span><span class="chip">강원특별자치도 소방학교</span>
-          <span class="chip">경기남부경찰청</span><span class="chip">서울지방우정청</span>
-          <span class="chip">수원경인지방우정청</span><span class="chip">병무연수원</span>
-          <span class="chip">중앙전파관리소</span><span class="chip">국립생물자원관</span>
+      <div class="rv">
+        <div class="wall-head"><h4>주강사 진행</h4><span>50개 기관</span></div>
+        <div class="logo-wall">
+          <img src="assets/logos/m01.webp" alt="SK하이닉스 하인슈타인" title="SK하이닉스 하인슈타인" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m02.webp" alt="TOK첨단재료" title="TOK첨단재료" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m03.webp" alt="가족센터" title="가족센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m04.webp" alt="가평조종중학교" title="가평조종중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m05.webp" alt="강원대학교" title="강원대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m06.webp" alt="강원특별자치도소방학교" title="강원특별자치도소방학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m07.webp" alt="강진청년지원센터" title="강진청년지원센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m08.webp" alt="경기도소방학교" title="경기도소방학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m09.webp" alt="경상국립대학교" title="경상국립대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m10.webp" alt="경상남도교육청" title="경상남도교육청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m11.webp" alt="광주미래채움" title="광주미래채움" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m12.webp" alt="구미여자상업고등학교" title="구미여자상업고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m13.webp" alt="국립생물자원관" title="국립생물자원관" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m14.webp" alt="대전창업성장캠퍼스" title="대전창업성장캠퍼스" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m15.webp" alt="대학내일" title="대학내일" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m16.webp" alt="동국대학교부속고등학교" title="동국대학교부속고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m17.webp" alt="동서울대학교" title="동서울대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m18.webp" alt="로우파트너스" title="로우파트너스" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m19.webp" alt="마르시스에듀" title="마르시스에듀" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m20.webp" alt="부안군청" title="부안군청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m21.webp" alt="부천대학교" title="부천대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m22.webp" alt="뷰티예술고등학교" title="뷰티예술고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m23.webp" alt="삼성SW청년아카데미" title="삼성SW청년아카데미" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m24.webp" alt="서울시장애인일자리통합지원센터" title="서울시장애인일자리통합지원센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m25.webp" alt="서초구청" title="서초구청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m26.webp" alt="세명컴퓨터고등학교" title="세명컴퓨터고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m27.webp" alt="세종특별자치시청" title="세종특별자치시청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m28.webp" alt="센트비" title="센트비" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m29.webp" alt="수원경인지방우정청" title="수원경인지방우정청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m30.webp" alt="시흥시노인복지관" title="시흥시노인복지관" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m31.webp" alt="용인남곡초등학교" title="용인남곡초등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m32.webp" alt="용인시공공형어린이집 연합회" title="용인시공공형어린이집 연합회" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m33.webp" alt="인삼박물관" title="인삼박물관" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m34.webp" alt="인일여자고등학교" title="인일여자고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m35.webp" alt="인천 동구청" title="인천 동구청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m36.webp" alt="인천계양중학교" title="인천계양중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m37.webp" alt="전남대학교" title="전남대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m38.webp" alt="전북미래채움" title="전북미래채움" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m39.webp" alt="중소상공인희망재단" title="중소상공인희망재단" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m40.webp" alt="중앙전파관리소" title="중앙전파관리소" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m41.webp" alt="천보중학교" title="천보중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m42.webp" alt="청주상공회의소" title="청주상공회의소" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m43.webp" alt="청주여성새로일하기센터" title="청주여성새로일하기센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m44.webp" alt="컴투스" title="컴투스" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m45.webp" alt="한국강사교육협회" title="한국강사교육협회" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m46.webp" alt="한국고용서비스진흥원" title="한국고용서비스진흥원" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m47.webp" alt="한국국제교류재단" title="한국국제교류재단" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m48.webp" alt="한국동서발전" title="한국동서발전" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m49.webp" alt="한국마케팅협회" title="한국마케팅협회" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/m50.webp" alt="호서대학교" title="호서대학교" width="300" height="160" loading="lazy" />
         </div>
       </div>
 
-      <div class="cgroup rv">
-        <h4>기업 · 산업체</h4>
-        <div class="chips">
-          <span class="chip">컴투스</span><span class="chip">센트비</span><span class="chip">TOK첨단재료</span><span class="chip">한국동서발전㈜</span>
-          <span class="chip">서연이화</span><span class="chip">대학내일</span><span class="chip">삼성인재개발원</span>
-          <span class="chip">삼성SW청년아카데미(SSAFY)</span><span class="chip">㈜남해종합건설</span>
-          <span class="chip">로우파트너스</span>
-        </div>
-      </div>
-
-      <div class="cgroup rv">
-        <h4>대학 · 학교</h4>
-        <div class="chips">
-          <span class="chip">전남대학교</span><span class="chip">강원대학교</span><span class="chip">경상국립대학교</span>
-          <span class="chip">중앙대학교 간호대학</span><span class="chip">남서울대학교</span><span class="chip">동서울대학교</span>
-          <span class="chip">강원도립대학교</span><span class="chip">부천대학교</span><span class="chip">호서대학교</span>
-          <span class="chip">인일여자고등학교</span><span class="chip">구미여자상업고등학교</span>
-        </div>
-      </div>
-
-      <div class="cgroup rv">
-        <h4>협회 · 재단 · 센터</h4>
-        <div class="chips">
-          <span class="chip">한국국제교류재단</span><span class="chip">한국강사교육협회</span>
-          <span class="chip">한국마케팅협회</span>
-          <span class="chip">한국농수식품무역협회</span><span class="chip">중소상공인희망재단</span>
-          <span class="chip">화성시인재육성재단</span><span class="chip">청주상공회의소</span>
-          <span class="chip">대전창업성장캠퍼스</span><span class="chip">서서울농협</span>
-          <span class="chip">화성시농업기술센터</span><span class="chip">여주시농업기술센터</span>
-          <span class="chip">서울시가족센터</span><span class="chip">서울시장애인일자리통합지원센터</span>
+      <div class="rv">
+        <div class="wall-head"><h4>교육지원 참여</h4><span>28개 기관 · 주강사를 보조하거나 공동 진행한 과정</span></div>
+        <div class="logo-wall sup">
+          <img src="assets/logos/s01.webp" alt="강원도립대학교" title="강원도립대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s02.webp" alt="경기남부경찰청" title="경기남부경찰청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s03.webp" alt="경기도교육청 남부연수원" title="경기도교육청 남부연수원" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s04.webp" alt="경기도여성가족재단" title="경기도여성가족재단" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s05.webp" alt="경기동남권 베이비부머 행복캠퍼스" title="경기동남권 베이비부머 행복캠퍼스" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s06.webp" alt="고양시장애인종합복지관" title="고양시장애인종합복지관" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s07.webp" alt="남서울대학교" title="남서울대학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s08.webp" alt="남해종합건설" title="남해종합건설" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s09.webp" alt="노원장애인자립생활센터" title="노원장애인자립생활센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s10.webp" alt="대구경북중소벤처기업청" title="대구경북중소벤처기업청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s11.webp" alt="대구동구청" title="대구동구청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s12.webp" alt="마포구고용복지지원센터" title="마포구고용복지지원센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s13.webp" alt="병무연수원" title="병무연수원" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s14.webp" alt="삼성인재개발원" title="삼성인재개발원" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s15.webp" alt="서서울농협" title="서서울농협" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s16.webp" alt="서연이화" title="서연이화" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s17.webp" alt="서울시가족센터" title="서울시가족센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s18.webp" alt="서울지방우정청" title="서울지방우정청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s19.webp" alt="심농교육원" title="심농교육원" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s20.webp" alt="여주시농업기술센터" title="여주시농업기술센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s21.webp" alt="유성구청" title="유성구청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s22.webp" alt="의왕시청" title="의왕시청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s23.webp" alt="인천 연수구청" title="인천 연수구청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s24.webp" alt="중랑구육아종합지원센터" title="중랑구육아종합지원센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s25.webp" alt="중앙대학교 간호대학" title="중앙대학교 간호대학" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s26.webp" alt="철원군청" title="철원군청" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s27.webp" alt="화성시농업기술센터" title="화성시농업기술센터" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/s28.webp" alt="화성시인재육성재단" title="화성시인재육성재단" width="300" height="160" loading="lazy" />
         </div>
       </div>
 
       <p class="chip-note rv">
-        <em>교육지원</em> 표시가 붙은 기관은 주강사를 보조하거나 공동으로 진행한 과정입니다.
-        표시가 없는 기관은 단독으로 진행했습니다.
+        로고는 각 기관의 상표이며, 출강 이력을 사실 그대로 밝히기 위해 표기했습니다.
       </p>
     </div>
   </section>
@@ -1083,24 +1144,37 @@
         </div>
       </div>
 
-      <div class="k12-chips rv">
-        <h4>주요 출강 학교</h4>
-        <div class="chips">
-          <span class="chip">잠실여자고등학교</span><span class="chip">덕수고등학교</span>
-          <span class="chip">동국대학교부속고등학교</span><span class="chip">세명컴퓨터고등학교</span>
-          <span class="chip">뷰티예술고등학교</span><span class="chip">덕일전자공업고등학교</span>
-          <span class="chip">여주자영농업고등학교</span><span class="chip">수원영복여자고등학교</span>
-          <span class="chip">안산공업고등학교</span><span class="chip">안성두원공업고등학교</span>
-          <span class="chip">경민IT고등학교</span><span class="chip">인천비즈니스고등학교</span>
-          <span class="chip">인천인명여자고등학교</span><span class="chip">과천외국어고등학교</span>
-          <span class="chip">화성반원고등학교</span><span class="chip">인천대인고등학교</span>
-          <span class="chip">인천계양중학교</span><span class="chip">부명중학교</span>
-          <span class="chip">천보중학교</span><span class="chip">가평조종중학교</span>
-          <span class="chip">부안중학교</span><span class="chip">개포중학교</span>
-          <span class="chip">과천문원중학교</span><span class="chip">안산연현중학교</span>
-          <span class="chip">별가람중학교</span><span class="chip">봉일천중학교</span>
-          <span class="chip">화성남양중학교</span>
-          <span class="k12-more">외 초등학교 58개교</span>
+      <div class="k12-wall rv">
+        <div class="wall-head"><h4>주요 출강 학교</h4><span>28개교 · 이 외 초등학교 58개교</span></div>
+        <div class="logo-wall">
+          <img src="assets/logos/c01.webp" alt="잠실여자고등학교" title="잠실여자고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c02.webp" alt="덕수고등학교" title="덕수고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c03.webp" alt="동국대학교부속고등학교" title="동국대학교부속고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c04.webp" alt="세명컴퓨터고등학교" title="세명컴퓨터고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c05.webp" alt="뷰티예술고등학교" title="뷰티예술고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c06.webp" alt="덕일전자공업고등학교" title="덕일전자공업고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c07.webp" alt="여주자영농업고등학교" title="여주자영농업고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c08.webp" alt="수원영복여자고등학교" title="수원영복여자고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c09.webp" alt="안산공업고등학교" title="안산공업고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c10.webp" alt="안성두원공업고등학교" title="안성두원공업고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c11.webp" alt="경민IT고등학교" title="경민IT고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c12.webp" alt="인천비즈니스고등학교" title="인천비즈니스고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c13.webp" alt="인천인명여자고등학교" title="인천인명여자고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c14.webp" alt="과천외국어고등학교" title="과천외국어고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c15.webp" alt="화성반원고등학교" title="화성반원고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c16.webp" alt="인천대인고등학교" title="인천대인고등학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c17.webp" alt="인천계양중학교" title="인천계양중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c18.webp" alt="부명중학교" title="부명중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c19.webp" alt="천보중학교" title="천보중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c20.webp" alt="가평조종중학교" title="가평조종중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c21.webp" alt="부안중학교" title="부안중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c22.webp" alt="개포중학교" title="개포중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c23.webp" alt="과천문원중학교" title="과천문원중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c24.webp" alt="안산연현중학교" title="안산연현중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c25.webp" alt="별가람중학교" title="별가람중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c26.webp" alt="봉일천중학교" title="봉일천중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c27.webp" alt="화성남양중학교" title="화성남양중학교" width="300" height="160" loading="lazy" />
+          <img src="assets/logos/c28.webp" alt="구미여자상업고등학교" title="구미여자상업고등학교" width="300" height="160" loading="lazy" />
         </div>
       </div>
     </div>
