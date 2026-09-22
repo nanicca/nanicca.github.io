@@ -654,6 +654,30 @@
   footer a{color:var(--blue);font-weight:700}
   footer .sep{color:var(--line);margin:0 8px}
 
+  .progress{
+    position:fixed;top:0;left:0;height:2px;width:0;z-index:120;
+    background:var(--grad);transition:width .12s linear;pointer-events:none;
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .hero .badges,.hero h1,.hero-name,.hero-role,.hero-lead,
+    .hero-meta,.hero .btn-row,.hero-links,.photo-wrap{
+      opacity:0;transform:translateY(16px);
+      animation:heroIn .75s cubic-bezier(.22,.9,.3,1) forwards;
+    }
+    .hero .badges{animation-delay:.06s}
+    .hero h1{animation-delay:.16s}
+    .hero-name{animation-delay:.28s}
+    .hero-role{animation-delay:.36s}
+    .hero-lead{animation-delay:.44s}
+    .hero-meta{animation-delay:.52s}
+    .hero .btn-row{animation-delay:.60s}
+    .hero-links{animation-delay:.68s}
+    .photo-wrap{animation-delay:.22s}
+    @keyframes heroIn{to{opacity:1;transform:none}}
+  }
+  .lec-list{transition:opacity .18s ease}
+  .lec-list.swap{opacity:0}
+
   /* ══ REVEAL ══ */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
   .rv.in{opacity:1;transform:none}
@@ -1485,6 +1509,8 @@
   </div>
 </footer>
 
+<div class="progress" id="progress"></div>
+
 <div class="lightbox" id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="닫기">×</button>
   <img id="lbImg" src="" alt="" />
@@ -1572,9 +1598,14 @@
     if (!b) return;
     [].forEach.call(document.querySelectorAll('.filter'), function (x) { x.classList.remove('on'); });
     b.classList.add('on');
-    cat = b.dataset.cat; shown = STEP; render();
+    cat = b.dataset.cat; shown = STEP; swapRender();
   });
-  qEl.addEventListener('input', function () { q = qEl.value.trim().toLowerCase(); shown = STEP; render(); });
+  qEl.addEventListener('input', function () { q = qEl.value.trim().toLowerCase(); shown = STEP; swapRender(); });
+  function swapRender() {
+    if (reduceMotion) { render(); return; }
+    listEl.classList.add('swap');
+    setTimeout(function () { render(); listEl.classList.remove('swap'); }, 150);
+  }
   moreBtn.addEventListener('click', function () { shown += STEP; render(); });
   render();
 
@@ -1713,6 +1744,41 @@
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
+
+  /* 지표 숫자 카운트업 */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el) {
+    var node = el.firstChild;
+    if (!node || node.nodeType !== 3) return;
+    var target = parseInt(node.nodeValue, 10);
+    if (isNaN(target) || reduceMotion) return;
+    var dur = 900, t0 = null;
+    node.nodeValue = '0';
+    requestAnimationFrame(function step(t) {
+      if (!t0) t0 = t;
+      var k = Math.min(1, (t - t0) / dur);
+      node.nodeValue = String(Math.round(target * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) requestAnimationFrame(step); else node.nodeValue = String(target);
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var numIo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { countUp(e.target); numIo.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    [].forEach.call(document.querySelectorAll('.stat b, .k12-stat b'), function (el) { numIo.observe(el); });
+  }
+
+  /* 스크롤 진행 표시 */
+  var bar = document.getElementById('progress');
+  function drawBar() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', drawBar, { passive: true });
+  window.addEventListener('resize', drawBar);
+  drawBar();
 
   var hd = document.getElementById('hd'), toTop = document.getElementById('toTop');
   function onScroll() {
