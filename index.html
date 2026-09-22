@@ -1734,7 +1734,7 @@
      FORM_ENDPOINT 에 구글 앱스스크립트 웹앱 주소(/exec)를 넣으면
      구글 시트 저장 + 메일 알림으로 동작합니다. 비어 있으면 카카오톡 방식으로 동작합니다.
      설정 방법은 저장소의 '문의폼_구글시트_설정.md' 참고.                        */
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbygfGc6N6btF4u7IHfRr1yoMKAaDeXB5yt0GSbg_pzh8hdvlnSuyZvhHKji962v-eZ2SA/exec';
   var KAKAO_URL = 'https://open.kakao.com/o/s2enafqi';
 
   var cform = document.getElementById('cform');
@@ -1817,16 +1817,18 @@
 
       fetch(FORM_ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({ name: f.name, contact: f.contact, message: f.message,
                                website: f.website, ref: f.ref })
-      }).then(function () {
+      }).then(function (r) {
+        return r.json()['catch'](function () { return { ok: r.ok }; });
+      }).then(function (res) {
+        if (!res || !res.ok) throw new Error('fail');
         track('sheet');
         setNote('문의가 접수되었습니다. 확인 후 연락드리겠습니다.', 'done');
         cform.reset();
       })['catch'](function () {
-        setNote('전송에 실패했습니다. 카카오톡이나 이메일로 보내 주세요.', 'done');
+        setNote('전송에 실패했습니다. 아래 카카오톡이나 메일로 보내 주세요.', 'done');
       })['finally'](function () {
         formBtn.disabled = false;
         formBtn.textContent = btnLabel;
