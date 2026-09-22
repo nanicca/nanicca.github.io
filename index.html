@@ -606,6 +606,10 @@
   .cform-note{font-size:12.5px;color:var(--d-muted);margin:12px 0 0;line-height:1.65}
   .cform-note a{color:#9fb6e8;font-weight:700;border-bottom:1px solid rgba(159,182,232,.45)}
   .cform-note.done{color:var(--cyan)}
+  .cform-note.warn{color:#ffb3b3}
+  .cform input.err,.cform textarea.err{
+    border-color:#ff6b6b;box-shadow:0 0 0 3px rgba(255,107,107,.16);
+  }
   .cform .btn-kakao{width:100%;justify-content:center}
   .cinfo-list{list-style:none;margin:20px 0 0;padding:0}
   .cinfo-list a{
@@ -1432,7 +1436,7 @@
             <input type="text" id="f-name" placeholder="예) 홍길동 / ○○구청 교육담당" required />
           </label>
           <label>연락처
-            <input type="text" id="f-contact" placeholder="예) 010-0000-0000 또는 이메일" required />
+            <input type="text" id="f-contact" placeholder="예) 010-1234-5678 또는 name@company.go.kr" required />
           </label>
           <label>문의 내용
             <textarea id="f-msg" placeholder="• 교육 대상·인원 (예: 6급 이하 공무원 40명)&#10;• 희망 주제 (예: 생성형 AI 업무자동화)&#10;• 희망 일시·시간 (예: 11월 중, 2시간 × 2회)&#10;• 진행 방식 (집합 / 온라인 / 실습 여부)" required></textarea>
@@ -1744,14 +1748,40 @@
     var formBtn = document.getElementById('formBtn');
     var btnLabel = formBtn.textContent;
 
+    function isValidContact(v) {
+      // 휴대폰·지역번호·070·0505 / 1588 같은 대표번호
+      var phone = /(^|[^0-9])0\d{1,2}[-. ]?\d{3,4}[-. ]?\d{4}([^0-9]|$)/.test(v) ||
+                  /(^|[^0-9])1[5-9]\d{2}[-. ]?\d{4}([^0-9]|$)/.test(v);
+      var email = /[^\s@]+@[^\s@]+\.[A-Za-z]{2,}/.test(v);
+      return phone || email;
+    }
+    function markErr(el, on) {
+      if (el) el.className = on ? 'err' : '';
+    }
+    function warn(el, msg) {
+      markErr(el, true);
+      setNote(msg, 'warn');
+      if (el) el.focus();
+      resetNote(7000);
+      return null;
+    }
+
     function fields() {
-      var name = document.getElementById('f-name').value.trim();
-      var contact = document.getElementById('f-contact').value.trim();
-      var message = document.getElementById('f-msg').value.trim();
-      if (!name || !contact || !message) {
-        alert('이름/소속, 연락처, 문의 내용을 모두 입력해 주세요.');
-        return null;
+      var elName = document.getElementById('f-name');
+      var elContact = document.getElementById('f-contact');
+      var elMsg = document.getElementById('f-msg');
+      var name = elName.value.trim();
+      var contact = elContact.value.trim();
+      var message = elMsg.value.trim();
+      markErr(elName, false); markErr(elContact, false); markErr(elMsg, false);
+
+      if (!name) return warn(elName, '이름과 소속을 입력해 주세요.');
+      if (!contact) return warn(elContact, '연락처를 입력해 주세요. 회신할 방법이 필요합니다.');
+      if (!isValidContact(contact)) {
+        return warn(elContact,
+          '연락처 형식을 확인해 주세요. 전화번호(예: 010-1234-5678) 또는 이메일 주소를 입력해 주시면 됩니다.');
       }
+      if (!message) return warn(elMsg, '문의 내용을 입력해 주세요.');
       var NL = String.fromCharCode(10);
       return {
         name: name, contact: contact, message: message,
