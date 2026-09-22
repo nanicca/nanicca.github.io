@@ -1446,8 +1446,6 @@
           <button type="submit" class="btn btn-primary" id="formBtn">강의 문의 보내기</button>
           <p class="cform-note" id="formNote">
             보내주신 내용은 강사에게 바로 전달됩니다.
-            <a href="#" id="kakaoInstead">카카오톡으로 보내기</a> ·
-            <a href="#" id="mailInstead">메일로 보내기</a>
           </p>
         </form>
 
@@ -1858,7 +1856,11 @@
         setNote('문의가 접수되었습니다. 확인 후 연락드리겠습니다.', 'done');
         cform.reset();
       })['catch'](function () {
-        setNote('전송에 실패했습니다. 아래 카카오톡이나 메일로 보내 주세요.', 'done');
+        note.className = 'cform-note warn';
+        note.innerHTML = '전송에 실패했습니다. ' +
+          '<a href="#" id="kakaoInstead">카카오톡으로 보내기</a> · ' +
+          '<a href="#" id="mailInstead">메일로 보내기</a>';
+        bindAlt();
       })['finally'](function () {
         formBtn.disabled = false;
         formBtn.textContent = btnLabel;
