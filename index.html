@@ -1463,7 +1463,7 @@
             강사 양성 과정과 자격 취득에 대한 문의는 협회로 연락 주세요.
           </p>
         </div>
-        <a class="btn-outline" href="mailto:chatgpt.edu119@gmail.com?subject=%5B%EA%B0%95%EC%82%AC%20%EC%96%91%EC%84%B1%20%EB%AC%B8%EC%9D%98%5D%20%EC%84%B1%ED%95%A8%20%2F%20%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9">
+        <a class="btn-outline" href="https://www.chatgpt1st.co.kr/" target="_blank" rel="noopener">
           <img src="assets/kiea-mark.png" alt="" width="96" height="97" />
           한국강사교육협회로 문의하기 →
         </a>
@@ -1632,6 +1632,7 @@
     else if (href.indexOf('mailto:') === 0) track('contact_email_open');
     else if (href.indexOf('blog.naver.com') > -1) track('link_blog');
     else if (href.indexOf('youtube.com') > -1) track('link_youtube');
+    else if (href.indexOf('chatgpt1st.co.kr') > -1) track('association_click');
     else if (a.id === 'copyMail') track('contact_email_copy');
     else if (a.classList.contains('filter')) track('lecture_filter', { category: a.dataset.cat });
     else if (a.classList.contains('more')) track('lecture_more');
