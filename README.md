@@ -13,7 +13,7 @@
 ```
 index.html              전체 페이지 (구조·스타일·스크립트 포함)
 assets/data.js          출강 이력 데이터 (88건)
-assets/logos/           출강 기관·학교 로고 106개 (주강사 50 / 교육지원 28 / 학교 28)
+assets/logos/           출강 기관·학교 로고 108개 (주강사 51 / 교육지원 29 / 학교 28)
 assets/photos/          강의 현장 사진 8장 (얼굴 모자이크 처리됨)
 assets/profile.jpg      프로필 사진
 assets/book.png         저서 표지 (투명 배경)
