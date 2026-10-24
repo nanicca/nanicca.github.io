@@ -642,7 +642,12 @@
   .pdf-note{font-size:12.5px;color:var(--d-muted);margin:10px 0 0;line-height:1.6;text-align:center}
 
   /* ══ FLOATING ══ */
-  .float{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;flex-direction:column;gap:10px}
+  .float{
+    position:fixed;right:22px;bottom:22px;z-index:90;display:flex;flex-direction:column;gap:10px;
+    opacity:0;pointer-events:none;transform:translateY(8px);
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .float.show{opacity:1;pointer-events:auto;transform:none}
   .fb{
     width:50px;height:50px;border-radius:50%;display:grid;place-items:center;
     background:var(--surface-2);border:1px solid var(--line-2);box-shadow:0 10px 26px -10px rgba(0,0,0,.7);
@@ -654,7 +659,12 @@
   .fb svg{width:21px;height:21px}
   .fb.top{opacity:0;pointer-events:none;transition:opacity .25s,transform .18s}
   .fb.top.show{opacity:1;pointer-events:auto}
-  @media(max-width:640px){.float{right:14px;bottom:14px}.fb{width:46px;height:46px}}
+  @media(max-width:640px){
+    .float{right:12px;bottom:12px;gap:8px}
+    .fb{width:44px;height:44px}
+    .fb svg{width:19px;height:19px}
+    .fb.main,.fb.mail{display:none}   /* 상단 '강의 문의' 버튼과 문의 섹션으로 대체 */
+  }
 
   footer{padding:44px 0;text-align:center;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
   footer b{color:var(--ink);font-weight:700}
@@ -1533,7 +1543,7 @@
   <a class="fb main" href="#contact" title="강의 문의" aria-label="강의 문의">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.17L4 17.17V4z"/></svg>
   </a>
-  <a class="fb" href="mailto:nanicca00@naver.com" title="이메일 보내기" aria-label="이메일 보내기">
+  <a class="fb mail" href="mailto:nanicca00@naver.com" title="이메일 보내기" aria-label="이메일 보내기">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
   </a>
   <button class="fb top" id="toTop" title="맨 위로" aria-label="맨 위로">
@@ -1878,10 +1888,17 @@
   }
 
   var hd = document.getElementById('hd'), toTop = document.getElementById('toTop');
+  var floatEl = document.querySelector('.float');
+  var contactEl = document.getElementById('contact');
   function onScroll() {
     var y = window.scrollY;
     hd.classList.toggle('solid', y > 80);
     toTop.classList.toggle('show', y > 600);
+    if (floatEl && contactEl) {
+      var r = contactEl.getBoundingClientRect();
+      var contactNear = r.top < window.innerHeight * 0.85 && r.bottom > 0;
+      floatEl.classList.toggle('show', y > 700 && !contactNear);
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
